@@ -1,0 +1,15 @@
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.deps.json
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.pdb
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.pdb
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.csprojAssemblyReference.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.csproj.CoreCompileInputs.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.AssemblyInfoInputs.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.AssemblyInfo.cs
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.csproj.CopyComplete
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\obj\Release\netstandard2.0\Majid.AutoMapper.pdb

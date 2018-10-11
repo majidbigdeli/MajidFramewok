@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Majid.ZeroCore.EntityFrameworkCore</name>
+    </assembly>
+    <members>
+        <member name="M:Majid.Data.ConnectionStringHelper.GetConnectionString(System.String)">
+            <summary>
+            Gets connection string from given connection string or name.
+            </summary>
+        </member>
+        <member name="M:Majid.EntityHistory.EntityHistoryHelper.GetPropertyChanges(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry,System.Boolean)">
+            <summary>
+            Gets the property changes for this entry.
+            </summary>
+        </member>
+        <member name="M:Majid.EntityHistory.EntityHistoryHelper.UpdateChangeSet(Majid.EntityHistory.EntityChangeSet)">
+            <summary>
+            Updates change time, entity id and foreign keys after SaveChanges is called.
+            </summary>
+        </member>
+        <member name="T:Majid.Zero.EntityFrameworkCore.DbPerTenantConnectionStringResolver">
+            <summary>
+            Implements <see cref="T:Majid.MultiTenancy.IDbPerTenantConnectionStringResolver"/> to dynamically resolve
+            connection string for a multi tenant application.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.DbPerTenantConnectionStringResolver.MajidSession">
+            <summary>
+            Reference to the session.
+            </summary>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.DbPerTenantConnectionStringResolver.#ctor(Majid.Configuration.Startup.IMajidStartupConfiguration,Majid.Domain.Uow.ICurrentUnitOfWorkProvider,Majid.MultiTenancy.ITenantCache)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Majid.Zero.EntityFrameworkCore.DbPerTenantConnectionStringResolver"/> class.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.Roles">
+            <summary>
+            Roles.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.Users">
+            <summary>
+            Users.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserLogins">
+            <summary>
+            User logins.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserLoginAttempts">
+            <summary>
+            User login attempts.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserRoles">
+            <summary>
+            User roles.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserClaims">
+            <summary>
+            User claims.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserTokens">
+            <summary>
+            User tokens.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.RoleClaims">
+            <summary>
+            Role claims.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.Permissions">
+            <summary>
+            Permissions.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.RolePermissions">
+            <summary>
+            Role permissions.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserPermissions">
+            <summary>
+            User permissions.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.Settings">
+            <summary>
+            Settings.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.AuditLogs">
+            <summary>
+            Audit logs.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.Languages">
+            <summary>
+            Languages.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.LanguageTexts">
+            <summary>
+            LanguageTexts.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.OrganizationUnits">
+            <summary>
+            OrganizationUnits.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserOrganizationUnits">
+            <summary>
+            UserOrganizationUnits.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.TenantNotifications">
+            <summary>
+            Tenant notifications.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.UserNotifications">
+            <summary>
+            User notifications.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.NotificationSubscriptions">
+            <summary>
+            Notification subscriptions.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.EntityChanges">
+            <summary>
+            Entity changes.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.EntityChangeSets">
+            <summary>
+            Entity change sets.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.EntityPropertyChanges">
+            <summary>
+            Entity property changes.
+            </summary>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{`2})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroCommonDbContext`3.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Majid.Zero.EntityFrameworkCore.MajidZeroCoreEntityFrameworkCoreModule">
+            <summary>
+            Entity framework integration module for ASP.NET Boilerplate Zero.
+            </summary>
+        </member>
+        <member name="T:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4">
+            <summary>
+            Base DbContext for MAJID zero.
+            Derive your DbContext from this class to have base entities.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.Tenants">
+            <summary>
+            Tenants
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.Editions">
+            <summary>
+            Editions.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.FeatureSettings">
+            <summary>
+            FeatureSettings.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.TenantFeatureSettings">
+            <summary>
+            TenantFeatureSetting.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.EditionFeatureSettings">
+            <summary>
+            EditionFeatureSettings.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.BackgroundJobs">
+            <summary>
+            Background jobs.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.UserAccounts">
+            <summary>
+            User accounts
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.Notifications">
+            <summary>
+            Notifications.
+            </summary>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{`3})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroDbContext`4.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Majid.Zero.EntityFrameworkCore.MajidZeroDbModelBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="!:DbModelBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroDbModelBuilderExtensions.ChangeMajidTablePrefix``3(Microsoft.EntityFrameworkCore.ModelBuilder,System.String,System.String)">
+            <summary>
+            Changes prefix for MAJID tables (which is "Majid" by default).
+            Can be null/empty string to clear the prefix.
+            </summary>
+            <typeparam name="TTenant">The type of the tenant entity.</typeparam>
+            <typeparam name="TRole">The type of the role entity.</typeparam>
+            <typeparam name="TUser">The type of the user entity.</typeparam>
+            <param name="modelBuilder">Model builder.</param>
+            <param name="prefix">Table prefix, or null to clear prefix.</param>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.Tenants">
+            <summary>
+            Tenants
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.Editions">
+            <summary>
+            Editions.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.FeatureSettings">
+            <summary>
+            FeatureSettings.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.TenantFeatureSettings">
+            <summary>
+            TenantFeatureSetting.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.EditionFeatureSettings">
+            <summary>
+            EditionFeatureSettings.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.BackgroundJobs">
+            <summary>
+            Background jobs.
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.UserAccounts">
+            <summary>
+            User accounts
+            </summary>
+        </member>
+        <member name="P:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.Notifications">
+            <summary>
+            Notifications.
+            </summary>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroHostDbContext`4.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{`3})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Majid.Zero.EntityFrameworkCore.MajidZeroTenantDbContext`3.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{`2})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid</id>
+    <version>1.0.1</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Castle.Core" version="4.3.1" exclude="Build,Analyzers" />
+        <dependency id="Castle.LoggingFacility" version="4.1.0" exclude="Build,Analyzers" />
+        <dependency id="JetBrains.Annotations" version="2018.2.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Caching.Memory" version="2.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options" version="2.1.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
+        <dependency id="Nito.AsyncEx.Context" version="1.1.0" exclude="Build,Analyzers" />
+        <dependency id="Nito.AsyncEx.Coordination" version="1.0.2" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Immutable" version="1.5.0" exclude="Build,Analyzers" />
+        <dependency id="System.ComponentModel.Annotations" version="4.5.0" exclude="Build,Analyzers" />
+        <dependency id="System.Configuration.ConfigurationManager" version="4.5.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.Common" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq.Dynamic.Core" version="1.0.8.18" exclude="Build,Analyzers" />
+        <dependency id="System.Linq.Queryable" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.Serialization.Formatters" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Security.Claims" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Threading" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Xml.XPath.XmlDocument" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="TimeZoneConverter" version="2.4.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid\bin\Release\netstandard2.0\Majid.dll" target="lib\netstandard2.0\Majid.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid\bin\Release\netstandard2.0\Majid.xml" target="lib\netstandard2.0\Majid.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid\bin\Release\netstandard2.0\Majid.pdb" target="lib\netstandard2.0\Majid.pdb" />
+  </files>
+</package>

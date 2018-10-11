@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Majid.AspNetCore</name>
+    </assembly>
+    <members>
+        <member name="P:Majid.AspNetCore.Configuration.IMajidAspNetCoreConfiguration.IsValidationEnabledForControllers">
+            <summary>
+            Default: true.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Configuration.IMajidAspNetCoreConfiguration.IsAuditingEnabled">
+            <summary>
+            Used to enable/disable auditing for MVC controllers.
+            Default: true.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Configuration.IMajidAspNetCoreConfiguration.SetNoCacheForAjaxResponses">
+            <summary>
+            Default: true.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Configuration.IMajidAspNetCoreConfiguration.UseMvcDateTimeFormatForAppServices">
+            <summary>
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Configuration.IMajidAspNetCoreConfiguration.RouteConfiguration">
+            <summary>
+            Used to add route config for modules.
+            </summary>
+        </member>
+        <member name="T:Majid.AspNetCore.Configuration.MajidAspNetCoreConfigurationExtensions">
+            <summary>
+            Defines extension methods to <see cref="T:Majid.Configuration.Startup.IModuleConfigurations"/> to allow to configure MAJID ASP.NET Core module.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Configuration.MajidAspNetCoreConfigurationExtensions.MajidAspNetCore(Majid.Configuration.Startup.IModuleConfigurations)">
+            <summary>
+            Used to configure MAJID ASP.NET Core module.
+            </summary>
+        </member>
+        <member name="F:Majid.AspNetCore.Configuration.MajidControllerAssemblySetting.DefaultServiceModuleName">
+            <summary>
+            "app".
+            </summary>
+        </member>
+        <member name="T:Majid.AspNetCore.EntityHistory.HttpRequestEntityChangeSetReasonProvider">
+            <summary>
+            Implements <see cref="T:Majid.EntityHistory.IEntityChangeSetReasonProvider"/> to get reason from HTTP request.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Localization.MajidLocalizationHeaderRequestCultureProvider.DetermineProviderCultureResult(Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Majid.AspNetCore.Localization.MajidLocalizationHeaderRequestCultureProvider.ParseHeaderValue(System.String)">
+            <summary>
+            Parses a <see cref="T:Microsoft.AspNetCore.Localization.RequestCulture"/> from the specified cookie value.
+            Returns <c>null</c> if parsing fails.
+            </summary>
+            <param name="value">The cookie value to parse.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Localization.RequestCulture"/> or <c>null</c> if parsing fails.</returns>
+        </member>
+        <member name="P:Majid.AspNetCore.MajidApplicationBuilderOptions.UseCastleLoggerFactory">
+            <summary>
+            Default: true.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.MajidApplicationBuilderOptions.UseMajidRequestLocalization">
+            <summary>
+            Default: true.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.MajidApplicationBuilderOptions.UseSecurityHeaders">
+            <summary>
+            Default: true.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.MajidServiceCollectionExtensions.AddMajid``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Majid.MajidBootstrapperOptions})">
+            <summary>
+            Integrates MAJID to AspNet Core.
+            </summary>
+            <typeparam name="TStartupModule">Startup module of the application which depends on other used modules. Should be derived from <see cref="T:Majid.Modules.MajidModule"/>.</typeparam>
+            <param name="services">Services.</param>
+            <param name="optionsAction">An action to get/modify options</param>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Auditing.HttpContextClientInfoProvider.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Creates a new <see cref="T:Majid.AspNetCore.Mvc.Auditing.HttpContextClientInfoProvider"/>.
+            </summary>
+        </member>
+        <member name="T:Majid.AspNetCore.Mvc.Authorization.MajidMvcAuthorizeAttribute">
+            <summary>
+            This attribute is used on an action of an MVC <see cref="T:Microsoft.AspNetCore.Mvc.Controller"/>
+            to make that action usable only by authorized users. 
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Authorization.MajidMvcAuthorizeAttribute.Permissions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Authorization.MajidMvcAuthorizeAttribute.RequireAllPermissions">
+            <inheritdoc/>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Authorization.MajidMvcAuthorizeAttribute.#ctor(System.String[])">
+            <summary>
+            Creates a new instance of <see cref="T:Majid.AspNetCore.Mvc.Authorization.MajidMvcAuthorizeAttribute"/> class.
+            </summary>
+            <param name="permissions">A list of permissions to authorize</param>
+        </member>
+        <member name="T:Majid.AspNetCore.Mvc.Controllers.MajidController">
+            <summary>
+            Base class for all MVC Controllers in Majid system.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.MajidSession">
+            <summary>
+            Gets current session information.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.EventBus">
+            <summary>
+            Gets the event bus.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.PermissionManager">
+            <summary>
+            Reference to the permission manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.SettingManager">
+            <summary>
+            Reference to the setting manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.PermissionChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.FeatureManager">
+            <summary>
+            Reference to the feature manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.FeatureChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.ObjectMapper">
+            <summary>
+            Reference to the object to object mapper.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.LocalizationManager">
+            <summary>
+            Reference to the localization manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this application service.
+            It must be set in order to use <see cref="M:Majid.AspNetCore.Mvc.Controllers.MajidController.L(System.String)"/> and <see cref="M:Majid.AspNetCore.Mvc.Controllers.MajidController.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.LocalizationSource">
+            <summary>
+            Gets localization source.
+            It's valid if <see cref="P:Majid.AspNetCore.Mvc.Controllers.MajidController.LocalizationSourceName"/> is set.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.Logger">
+            <summary>
+            Reference to the logger to write logs.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.UnitOfWorkManager">
+            <summary>
+            Reference to <see cref="T:Majid.Domain.Uow.IUnitOfWorkManager"/>.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Controllers.MajidController.CurrentUnitOfWork">
+            <summary>
+            Gets current unit of work.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.L(System.String,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.L(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.IsGrantedAsync(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.IsGranted(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.IsEnabledAsync(System.String)">
+            <summary>
+            Checks if given feature is enabled for current tenant.
+            </summary>
+            <param name="featureName">Name of the feature</param>
+            <returns></returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidController.IsEnabled(System.String)">
+            <summary>
+            Checks if given feature is enabled for current tenant.
+            </summary>
+            <param name="featureName">Name of the feature</param>
+            <returns></returns>
+        </member>
+        <member name="T:Majid.AspNetCore.Mvc.Controllers.MajidScriptsController">
+            <summary>
+            This controller is used to create client side scripts
+            to work with MAJID.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidScriptsController.#ctor(Majid.Web.MultiTenancy.IMultiTenancyScriptManager,Majid.Web.Settings.ISettingScriptManager,Majid.Web.Navigation.INavigationScriptManager,Majid.Web.Localization.ILocalizationScriptManager,Majid.Web.Authorization.IAuthorizationScriptManager,Majid.Web.Features.IFeaturesScriptManager,Majid.Web.Sessions.ISessionScriptManager,Majid.Web.Timing.ITimingScriptManager)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Controllers.MajidScriptsController.GetScripts(System.String)">
+            <summary>
+            Gets all needed scripts.
+            </summary>
+        </member>
+        <member name="T:Majid.AspNetCore.Mvc.Providers.MajidAppServiceControllerFeatureProvider">
+            <summary>
+            Used to add application services as controller.
+            </summary>
+        </member>
+        <member name="T:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel">
+            <summary>
+            Base class for all MVC Controllers in Majid system.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.MajidSession">
+            <summary>
+            Gets current session information.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.EventBus">
+            <summary>
+            Gets the event bus.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.PermissionManager">
+            <summary>
+            Reference to the permission manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.SettingManager">
+            <summary>
+            Reference to the setting manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.PermissionChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.FeatureManager">
+            <summary>
+            Reference to the feature manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.FeatureChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.ObjectMapper">
+            <summary>
+            Reference to the object to object mapper.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.LocalizationManager">
+            <summary>
+            Reference to the localization manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this application service.
+            It must be set in order to use <see cref="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.L(System.String)"/> and <see cref="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.LocalizationSource">
+            <summary>
+            Gets localization source.
+            It's valid if <see cref="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.LocalizationSourceName"/> is set.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.Logger">
+            <summary>
+            Reference to the logger to write logs.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.UnitOfWorkManager">
+            <summary>
+            Reference to <see cref="T:Majid.Domain.Uow.IUnitOfWorkManager"/>.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.CurrentUnitOfWork">
+            <summary>
+            Gets current unit of work.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.L(System.String,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.L(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.IsGrantedAsync(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.IsGranted(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.IsEnabledAsync(System.String)">
+            <summary>
+            Checks if given feature is enabled for current tenant.
+            </summary>
+            <param name="featureName">Name of the feature</param>
+            <returns></returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.RazorPages.MajidPageModel.IsEnabled(System.String)">
+            <summary>
+            Checks if given feature is enabled for current tenant.
+            </summary>
+            <param name="featureName">Name of the feature</param>
+            <returns></returns>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Results.Caching.NoClientCacheAttribute.IncludeNonAjaxRequests">
+            <summary>
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.MajidSession">
+            <summary>
+            Gets current session information.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.SettingManager">
+            <summary>
+            Reference to the setting manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.LocalizationManager">
+            <summary>
+            Reference to the localization manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this application service.
+            It must be set in order to use <see cref="M:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.L(System.String)"/> and <see cref="M:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.LocalizationSource">
+            <summary>
+            Gets localization source.
+            It's valid if <see cref="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.LocalizationSourceName"/> is set.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.Logger">
+            <summary>
+            Reference to the logger to write logs.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.ObjectMapper">
+            <summary>
+            Reference to the object to object mapper.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.PermissionManager">
+            <summary>
+            Reference to the permission manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.PermissionChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.FeatureManager">
+            <summary>
+            Reference to the feature manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.FeatureChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.L(System.String,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.ViewComponents.MajidViewComponent.L(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="T:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1">
+            <summary>
+            Base class for all views in Majid system.
+            </summary>
+            <typeparam name="TModel">Type of the View Model</typeparam>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.ApplicationPath">
+            <summary>
+            Gets the root path of the application.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.LocalizationManager">
+            <summary>
+            Reference to the localization manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.SettingManager">
+            <summary>
+            Reference to the setting manager.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.PermissionChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.FeatureChecker">
+            <summary>
+            Reference to the feature checker.
+            </summary>
+        </member>
+        <member name="P:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this controller.
+            It must be set in order to use <see cref="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.L(System.String)"/> and <see cref="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.L(System.String,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.L(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.Ls(System.String,System.String)">
+            <summary>
+            Gets localized string from given source for given key name and current language.
+            </summary>
+            <param name="sourceName">Source name</param>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.Ls(System.String,System.String,System.Object[])">
+            <summary>
+            Gets localized string from given source  for given key name and current language with formatting strings.
+            </summary>
+            <param name="sourceName">Source name</param>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.Ls(System.String,System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string from given source  for given key name and specified culture information.
+            </summary>
+            <param name="sourceName">Source name</param>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.Ls(System.String,System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string from given source  for given key name and current language with formatting strings.
+            </summary>
+            <param name="sourceName">Source name</param>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.IsGranted(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.IsFeatureEnabled(System.String)">
+            <summary>
+            Determines whether is given feature enabled.
+            </summary>
+            <param name="featureName">Name of the feature.</param>
+            <returns>True, if enabled; False if not.</returns>
+        </member>
+        <member name="M:Majid.AspNetCore.Mvc.Views.MajidRazorPage`1.GetFeatureValue(System.String)">
+            <summary>
+            Gets current value of a feature.
+            </summary>
+            <param name="featureName">Feature name</param>
+            <returns>Value of the feature</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Majid</RootNamespace>
+    <AssemblyName>Majid.ZeroCore.EntityFrameworkCore</AssemblyName>
+    <PackageId>Majid.ZeroCore.EntityFrameworkCore</PackageId>
+    <PackageTags>MajidBigdeli</PackageTags>
+    <Description>MajidBigdeli</Description>
+    <Authors>MajidBigdeli</Authors>
+    <Company>MajidBigdeli</Company>
+    <PackageIconUrl>http://uupload.ir/files/pg5k_1.jpg</PackageIconUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.2</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="bin\Release\netstandard2.0\Majid.ZeroCore.EntityFrameworkCore.pdb">
+      <PackagePath>lib/netstandard2.0/</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Majid.EntityFrameworkCore\Majid.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Majid.ZeroCore\Majid.ZeroCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SourceLink.Create.CommandLine" Version="2.8.3" />
+  </ItemGroup>
+
+</Project>

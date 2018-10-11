@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid.AutoMapper</id>
+    <version>1.0.2</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid.AutoMapper</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Majid" version="1.0.2" exclude="Build,Analyzers" />
+        <dependency id="AutoMapper" version="7.0.1" exclude="Build,Analyzers" />
+        <dependency id="AutoMapper.Collection" version="4.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.dll" target="lib\netstandard2.0\Majid.AutoMapper.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.xml" target="lib\netstandard2.0\Majid.AutoMapper.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.AutoMapper\bin\Release\netstandard2.0\Majid.AutoMapper.pdb" target="lib\netstandard2.0\Majid.AutoMapper.pdb" />
+  </files>
+</package>

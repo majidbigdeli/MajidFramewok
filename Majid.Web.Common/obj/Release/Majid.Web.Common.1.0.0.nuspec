@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid.Web.Common</id>
+    <version>1.0.0</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid.Web.Common</description>
+    <tags>MajidBigdeli</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Majid" version="1.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.Web.Common\bin\Release\netstandard2.0\Majid.Web.Common.dll" target="lib\netstandard2.0\Majid.Web.Common.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.Web.Common\bin\Release\netstandard2.0\Majid.Web.Common.xml" target="lib\netstandard2.0\Majid.Web.Common.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.Web.Common\bin\Release\netstandard2.0\Majid.Web.Common.pdb" target="lib\netstandard2.0\Majid.Web.Common.pdb" />
+  </files>
+</package>

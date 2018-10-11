@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid.TestBase</id>
+    <version>1.0.2</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid.TestBase</description>
+    <tags>MajidBigdeli</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Majid" version="1.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.dll" target="lib\netstandard2.0\Majid.TestBase.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.xml" target="lib\netstandard2.0\Majid.TestBase.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.pdb" target="lib\netstandard2.0\Majid.TestBase.pdb" />
+  </files>
+</package>

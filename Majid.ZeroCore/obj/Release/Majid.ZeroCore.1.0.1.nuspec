@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid.ZeroCore</id>
+    <version>1.0.1</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid.ZeroCore</description>
+    <tags>MajidBigdeli</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Majid.Zero.Common" version="1.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Identity" version="2.1.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.ZeroCore\bin\Release\netstandard2.0\Majid.ZeroCore.dll" target="lib\netstandard2.0\Majid.ZeroCore.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.ZeroCore\bin\Release\netstandard2.0\Majid.ZeroCore.xml" target="lib\netstandard2.0\Majid.ZeroCore.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.ZeroCore\bin\Release\netstandard2.0\Majid.ZeroCore.pdb" target="lib\netstandard2.0\Majid.ZeroCore.pdb" />
+  </files>
+</package>

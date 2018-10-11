@@ -1,0 +1,15 @@
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.EntityFramework.Common.deps.json
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.EntityFramework.Common.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.EntityFramework.Common.pdb
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.EntityFramework.Common.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.pdb
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\bin\Release\netstandard2.0\Majid.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.csprojAssemblyReference.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.csproj.CoreCompileInputs.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.AssemblyInfoInputs.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.AssemblyInfo.cs
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.csproj.CopyComplete
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.EntityFramework.Common\obj\Release\netstandard2.0\Majid.EntityFramework.Common.pdb

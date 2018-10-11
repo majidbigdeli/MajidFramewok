@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Majid.Castle.Log4Net</name>
+    </assembly>
+    <members>
+        <member name="T:Majid.Castle.Logging.Log4Net.MajidCastleLog4NetModule">
+            <summary>
+            MAJID Castle Log4Net module.
+            </summary>
+        </member>
+    </members>
+</doc>

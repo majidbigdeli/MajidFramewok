@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid.Zero.EntityFrameworkCore</id>
+    <version>1.0.1</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid.Zero.EntityFrameworkCore</description>
+    <tags>MajidBigdeli</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="Majid.EntityFrameworkCore" version="1.0.1" exclude="Build,Analyzers" />
+        <dependency id="Majid.Zero" version="1.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.Zero.EntityFrameworkCore\bin\Release\net461\Majid.Zero.EntityFrameworkCore.dll" target="lib\net461\Majid.Zero.EntityFrameworkCore.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.Zero.EntityFrameworkCore\bin\Release\net461\Majid.Zero.EntityFrameworkCore.xml" target="lib\net461\Majid.Zero.EntityFrameworkCore.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.Zero.EntityFrameworkCore\bin\Release\net461\Majid.Zero.EntityFrameworkCore.pdb" target="lib\net461\Majid.Zero.EntityFrameworkCore.pdb" />
+  </files>
+</package>

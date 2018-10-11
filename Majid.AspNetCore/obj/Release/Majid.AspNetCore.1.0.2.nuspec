@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Majid.AspNetCore</id>
+    <version>1.0.2</version>
+    <authors>MajidBigdeli</authors>
+    <owners>MajidBigdeli</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://uupload.ir/files/pg5k_1.jpg</iconUrl>
+    <description>Majid.AspNetCore</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Majid.Web.Common" version="1.0.2" exclude="Build,Analyzers" />
+        <dependency id="Castle.LoggingFacility.MsLogging" version="3.1.0" exclude="Build,Analyzers" />
+        <dependency id="Castle.Windsor.MsDependencyInjection" version="3.3.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="2.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.StaticFiles" version="2.1.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.AspNetCore\bin\Release\netstandard2.0\Majid.AspNetCore.dll" target="lib\netstandard2.0\Majid.AspNetCore.dll" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.AspNetCore\bin\Release\netstandard2.0\Majid.AspNetCore.xml" target="lib\netstandard2.0\Majid.AspNetCore.xml" />
+    <file src="C:\Users\majid\Desktop\New folder (7)\majid\Majid.AspNetCore\bin\Release\netstandard2.0\Majid.AspNetCore.pdb" target="lib\netstandard2.0\Majid.AspNetCore.pdb" />
+  </files>
+</package>

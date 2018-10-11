@@ -1,0 +1,15 @@
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.deps.json
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.pdb
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.TestBase.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.pdb
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\bin\Release\netstandard2.0\Majid.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.csprojAssemblyReference.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.csproj.CoreCompileInputs.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.AssemblyInfoInputs.cache
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.AssemblyInfo.cs
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.csproj.CopyComplete
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.dll
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.xml
+C:\Users\majid\Desktop\New folder (7)\majid\Majid.TestBase\obj\Release\netstandard2.0\Majid.TestBase.pdb

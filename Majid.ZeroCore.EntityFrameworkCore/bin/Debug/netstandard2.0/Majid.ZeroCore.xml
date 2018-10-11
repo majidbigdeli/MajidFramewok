@@ -1,0 +1,1041 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Majid.ZeroCore</name>
+    </assembly>
+    <members>
+        <member name="T:Majid.Authorization.PermissionChecker`2">
+            <summary>
+            Application should inherit this class to implement <see cref="T:Majid.Authorization.IPermissionChecker"/>.
+            </summary>
+            <typeparam name="TRole"></typeparam>
+            <typeparam name="TUser"></typeparam>
+        </member>
+        <member name="M:Majid.Authorization.PermissionChecker`2.#ctor(Majid.Authorization.Users.MajidUserManager{`0,`1})">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="T:Majid.Authorization.Roles.MajidRole`1">
+            <summary>
+            Represents a role in an application. A role is used to group permissions.
+            </summary>
+            <remarks> 
+            Application should use permissions to check if user is granted to perform an operation.
+            Checking 'if a user has a role' is not possible until the role is static (<see cref="P:Majid.Authorization.Roles.MajidRoleBase.IsStatic"/>).
+            Static roles can be used in the code and can not be deleted by users.
+            Non-static (dynamic) roles can be added/removed by users and we can not know their name while coding.
+            A user can have multiple roles. Thus, user will have all permissions of all assigned roles.
+            </remarks>
+        </member>
+        <member name="F:Majid.Authorization.Roles.MajidRole`1.MaxConcurrencyStampLength">
+            <summary>
+            Maximum length of the <see cref="P:Majid.Authorization.Roles.MajidRole`1.ConcurrencyStamp"/> property.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Roles.MajidRole`1.NormalizedName">
+            <summary>
+            Unique name of this role.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Roles.MajidRole`1.Claims">
+            <summary>
+            Claims of this user.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Roles.MajidRole`1.ConcurrencyStamp">
+            <summary>
+            A random value that must change whenever a user is persisted to the store
+            </summary>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRole`1.#ctor(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Creates a new <see cref="T:Majid.Authorization.Roles.MajidRole`1"/> object.
+            </summary>
+            <param name="tenantId">TenantId or null (if this is not a tenant-level role)</param>
+            <param name="displayName">Display name of the role</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRole`1.#ctor(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Majid.Authorization.Roles.MajidRole`1"/> object.
+            </summary>
+            <param name="tenantId">TenantId or null (if this is not a tenant-level role)</param>
+            <param name="name">Unique role name</param>
+            <param name="displayName">Display name of the role</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.IsGrantedAsync(System.String,System.String)">
+            <summary>
+            Checks if a role is granted for a permission.
+            </summary>
+            <param name="roleName">The role's name to check it's permission</param>
+            <param name="permissionName">Name of the permission</param>
+            <returns>True, if the role has the permission</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.IsGrantedAsync(System.Int32,System.String)">
+            <summary>
+            Checks if a role has a permission.
+            </summary>
+            <param name="roleId">The role's id to check it's permission</param>
+            <param name="permissionName">Name of the permission</param>
+            <returns>True, if the role has the permission</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.IsGrantedAsync(`0,Majid.Authorization.Permission)">
+            <summary>
+            Checks if a role is granted for a permission.
+            </summary>
+            <param name="role">The role</param>
+            <param name="permission">The permission</param>
+            <returns>True, if the role has the permission</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.IsGrantedAsync(System.Int32,Majid.Authorization.Permission)">
+            <summary>
+            Checks if a role is granted for a permission.
+            </summary>
+            <param name="roleId">role id</param>
+            <param name="permission">The permission</param>
+            <returns>True, if the role has the permission</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.GetGrantedPermissionsAsync(System.Int32)">
+            <summary>
+            Gets granted permission names for a role.
+            </summary>
+            <param name="roleId">Role id</param>
+            <returns>List of granted permissions</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.GetGrantedPermissionsAsync(System.String)">
+            <summary>
+            Gets granted permission names for a role.
+            </summary>
+            <param name="roleName">Role name</param>
+            <returns>List of granted permissions</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.GetGrantedPermissionsAsync(`0)">
+            <summary>
+            Gets granted permissions for a role.
+            </summary>
+            <param name="role">Role</param>
+            <returns>List of granted permissions</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.SetGrantedPermissionsAsync(System.Int32,System.Collections.Generic.IEnumerable{Majid.Authorization.Permission})">
+            <summary>
+            Sets all granted permissions of a role at once.
+            Prohibits all other permissions.
+            </summary>
+            <param name="roleId">Role id</param>
+            <param name="permissions">Permissions</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.SetGrantedPermissionsAsync(`0,System.Collections.Generic.IEnumerable{Majid.Authorization.Permission})">
+            <summary>
+            Sets all granted permissions of a role at once.
+            Prohibits all other permissions.
+            </summary>
+            <param name="role">The role</param>
+            <param name="permissions">Permissions</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.GrantPermissionAsync(`0,Majid.Authorization.Permission)">
+            <summary>
+            Grants a permission for a role.
+            </summary>
+            <param name="role">Role</param>
+            <param name="permission">Permission</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.ProhibitPermissionAsync(`0,Majid.Authorization.Permission)">
+            <summary>
+            Prohibits a permission for a role.
+            </summary>
+            <param name="role">Role</param>
+            <param name="permission">Permission</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.ProhibitAllPermissionsAsync(`0)">
+            <summary>
+            Prohibits all permissions for a role.
+            </summary>
+            <param name="role">Role</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.ResetAllPermissionsAsync(`0)">
+            <summary>
+            Resets all permission settings for a role.
+            It removes all permission settings for the role.
+            Role will have permissions those have <see cref="!:Permission.IsGrantedByDefault"/> set to true.
+            </summary>
+            <param name="role">Role</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.CreateAsync(`0)">
+            <summary>
+            Creates a role.
+            </summary>
+            <param name="role">Role</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.DeleteAsync(`0)">
+            <summary>
+            Deletes a role.
+            </summary>
+            <param name="role">Role</param>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.GetRoleByIdAsync(System.Int32)">
+            <summary>
+            Gets a role by given id.
+            Throws exception if no role with given id.
+            </summary>
+            <param name="roleId">Role id</param>
+            <returns>Role</returns>
+            <exception cref="T:Majid.MajidException">Throws exception if no role with given id</exception>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleManager`2.GetRoleByNameAsync(System.String)">
+            <summary>
+            Gets a role by given name.
+            Throws exception if no role with given roleName.
+            </summary>
+            <param name="roleName">Role name</param>
+            <returns>Role</returns>
+            <exception cref="T:Majid.MajidException">Throws exception if no role with given roleName</exception>
+        </member>
+        <member name="T:Majid.Authorization.Roles.MajidRoleStore`2">
+            <summary>
+            Creates a new instance of a persistence store for roles.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Roles.MajidRoleStore`2.ErrorDescriber">
+            <summary>
+            Gets or sets the <see cref="T:Microsoft.AspNetCore.Identity.IdentityErrorDescriber"/> for any error that occurred with the current operation.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Roles.MajidRoleStore`2.AutoSaveChanges">
+            <summary>
+            Gets or sets a flag indicating if changes should be persisted after CreateAsync, UpdateAsync and DeleteAsync are called.
+            </summary>
+            <value>
+            True if changes should be automatically persisted, otherwise false.
+            </value>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.SaveChanges(System.Threading.CancellationToken)">
+            <summary>Saves the current store.</summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.CreateAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new role in a store as an asynchronous operation.
+            </summary>
+            <param name="role">The role to create in the store.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> of the asynchronous query.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.UpdateAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Updates a role in a store as an asynchronous operation.
+            </summary>
+            <param name="role">The role to update in the store.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> of the asynchronous query.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.DeleteAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a role from the store as an asynchronous operation.
+            </summary>
+            <param name="role">The role to delete from the store.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> of the asynchronous query.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.GetRoleIdAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Gets the ID for a role from the store as an asynchronous operation.
+            </summary>
+            <param name="role">The role whose ID should be returned.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the ID of the role.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.GetRoleNameAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Gets the name of a role from the store as an asynchronous operation.
+            </summary>
+            <param name="role">The role whose name should be returned.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the name of the role.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.SetRoleNameAsync(`0,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the name of a role in the store as an asynchronous operation.
+            </summary>
+            <param name="role">The role whose name should be set.</param>
+            <param name="roleName">The name of the role.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.FindByIdAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Finds the role who has the specified ID as an asynchronous operation.
+            </summary>
+            <param name="id">The role ID to look for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that result of the look up.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.FindByNameAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Finds the role who has the specified normalized name as an asynchronous operation.
+            </summary>
+            <param name="normalizedName">The normalized role name to look for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that result of the look up.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.GetNormalizedRoleNameAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Get a role's normalized name as an asynchronous operation.
+            </summary>
+            <param name="role">The role whose normalized name should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the name of the role.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.SetNormalizedRoleNameAsync(`0,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Set a role's normalized name as an asynchronous operation.
+            </summary>
+            <param name="role">The role whose normalized name should be set.</param>
+            <param name="normalizedName">The normalized name to set</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.Dispose">
+            <summary>
+            Dispose the stores
+            </summary>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.GetClaimsAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Get the claims associated with the specified <paramref name="role"/> as an asynchronous operation.
+            </summary>
+            <param name="role">The role whose claims should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the claims granted to a role.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.AddClaimAsync(`0,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+            <summary>
+            Adds the <paramref name="claim"/> given to the specified <paramref name="role"/>.
+            </summary>
+            <param name="role">The role to add the claim to.</param>
+            <param name="claim">The claim to add to the role.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.RemoveClaimAsync(`0,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+            <summary>
+            Removes the <paramref name="claim"/> given from the specified <paramref name="role"/>.
+            </summary>
+            <param name="role">The role to remove the claim from.</param>
+            <param name="claim">The claim to remove from the role.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.RemovePermissionAsync(`0,Majid.Authorization.PermissionGrantInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.GetPermissionsAsync(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.HasPermissionAsync(System.Int32,Majid.Authorization.PermissionGrantInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Majid.Authorization.Roles.MajidRoleStore`2.RemoveAllPermissionSettingsAsync(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Majid.Authorization.Users.MajidUser`1">
+            <summary>
+            Represents a user.
+            </summary>
+        </member>
+        <member name="F:Majid.Authorization.Users.MajidUser`1.MaxConcurrencyStampLength">
+            <summary>
+            Maximum length of the <see cref="P:Majid.Authorization.Users.MajidUser`1.ConcurrencyStamp"/> property.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.MajidUser`1.NormalizedUserName">
+            <summary>
+            User name.
+            User name must be unique for it's tenant.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.MajidUser`1.NormalizedEmailAddress">
+            <summary>
+            Email address of the user.
+            Email address must be unique for it's tenant.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.MajidUser`1.ConcurrencyStamp">
+            <summary>
+            A random value that must change whenever a user is persisted to the store
+            </summary>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.IsGrantedAsync(System.Int64,System.String)">
+            <summary>
+            Check whether a user is granted for a permission.
+            </summary>
+            <param name="userId">User id</param>
+            <param name="permissionName">Permission name</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.IsGrantedAsync(`1,Majid.Authorization.Permission)">
+            <summary>
+            Check whether a user is granted for a permission.
+            </summary>
+            <param name="user">User</param>
+            <param name="permission">Permission</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.IsGrantedAsync(System.Int64,Majid.Authorization.Permission)">
+            <summary>
+            Check whether a user is granted for a permission.
+            </summary>
+            <param name="userId">User id</param>
+            <param name="permission">Permission</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.GetGrantedPermissionsAsync(`1)">
+            <summary>
+            Gets granted permissions for a user.
+            </summary>
+            <param name="user">Role</param>
+            <returns>List of granted permissions</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.SetGrantedPermissionsAsync(`1,System.Collections.Generic.IEnumerable{Majid.Authorization.Permission})">
+            <summary>
+            Sets all granted permissions of a user at once.
+            Prohibits all other permissions.
+            </summary>
+            <param name="user">The user</param>
+            <param name="permissions">Permissions</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.ProhibitAllPermissionsAsync(`1)">
+            <summary>
+            Prohibits all permissions for a user.
+            </summary>
+            <param name="user">User</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.ResetAllPermissionsAsync(`1)">
+            <summary>
+            Resets all permission settings for a user.
+            It removes all permission settings for the user.
+            User will have permissions according to his roles.
+            This method does not prohibit all permissions.
+            For that, use <see cref="M:Majid.Authorization.Users.MajidUserManager`2.ProhibitAllPermissionsAsync(`1)"/>.
+            </summary>
+            <param name="user">User</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.GrantPermissionAsync(`1,Majid.Authorization.Permission)">
+            <summary>
+            Grants a permission for a user if not already granted.
+            </summary>
+            <param name="user">User</param>
+            <param name="permission">Permission</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.ProhibitPermissionAsync(`1,Majid.Authorization.Permission)">
+            <summary>
+            Prohibits a permission for a user if it's granted.
+            </summary>
+            <param name="user">User</param>
+            <param name="permission">Permission</param>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManager`2.GetUserByIdAsync(System.Int64)">
+            <summary>
+            Gets a user by given id.
+            Throws exception if no user found with given id.
+            </summary>
+            <param name="userId">User id</param>
+            <returns>User</returns>
+            <exception cref="T:Majid.MajidException">Throws exception if no user found with given id</exception>
+        </member>
+        <member name="T:Majid.Authorization.Users.MajidUserManagerExtensions">
+            <summary>
+            Extension methods for <see cref="T:Majid.Authorization.Users.MajidUserManager`2"/>.
+            </summary>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserManagerExtensions.IsGranted``2(Majid.Authorization.Users.MajidUserManager{``0,``1},System.Int64,System.String)">
+            <summary>
+            Check whether a user is granted for a permission.
+            </summary>
+            <param name="manager">User manager</param>
+            <param name="userId">User id</param>
+            <param name="permissionName">Permission name</param>
+        </member>
+        <member name="T:Majid.Authorization.Users.MajidUserStore`2">
+            <summary>
+            Represents a new instance of a persistence store for the specified user and role types.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.MajidUserStore`2.ErrorDescriber">
+            <summary>
+            Gets or sets the <see cref="T:Microsoft.AspNetCore.Identity.IdentityErrorDescriber"/> for any error that occurred with the current operation.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.MajidUserStore`2.AutoSaveChanges">
+            <summary>
+            Gets or sets a flag indicating if changes should be persisted after CreateAsync, UpdateAsync and DeleteAsync are called.
+            </summary>
+            <value>
+            True if changes should be automatically persisted, otherwise false.
+            </value>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SaveChanges(System.Threading.CancellationToken)">
+            <summary>Saves the current store.</summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetUserIdAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the user identifier for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose identifier should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the identifier for the specified <paramref name="user"/>.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetUserNameAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the user name for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose name should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the name for the specified <paramref name="user"/>.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetUserNameAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the given <paramref name="userName" /> for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose name should be set.</param>
+            <param name="userName">The user name to set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetNormalizedUserNameAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the normalized user name for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose normalized name should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the normalized user name for the specified <paramref name="user"/>.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetNormalizedUserNameAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the given normalized name for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose name should be set.</param>
+            <param name="normalizedName">The normalized name to set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.CreateAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified <paramref name="user"/> in the user store.
+            </summary>
+            <param name="user">The user to create.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> of the creation operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.UpdateAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified <paramref name="user"/> in the user store.
+            </summary>
+            <param name="user">The user to update.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> of the update operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.DeleteAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified <paramref name="user"/> from the user store.
+            </summary>
+            <param name="user">The user to delete.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> of the update operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.FindByIdAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Finds and returns a user, if any, who has the specified <paramref name="userId"/>.
+            </summary>
+            <param name="userId">The user ID to search for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the user matching the specified <paramref name="userId"/> if it exists.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.FindByNameAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Finds and returns a user, if any, who has the specified normalized user name.
+            </summary>
+            <param name="normalizedUserName">The normalized user name to search for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the user matching the specified <paramref name="normalizedUserName"/> if it exists.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetPasswordHashAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the password hash for a user.
+            </summary>
+            <param name="user">The user to set the password hash for.</param>
+            <param name="passwordHash">The password hash to set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetPasswordHashAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the password hash for a user.
+            </summary>
+            <param name="user">The user to retrieve the password hash for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the password hash for the user.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.HasPasswordAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Returns a flag indicating if the specified user has a password.
+            </summary>
+            <param name="user">The user to retrieve the password hash for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing a flag indicating if the specified user has a password. If the 
+            user has a password the returned value with be true, otherwise it will be false.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.AddToRoleAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Adds the given <paramref name="normalizedRoleName"/> to the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user to add the role to.</param>
+            <param name="normalizedRoleName">The role to add.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.RemoveFromRoleAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Removes the given <paramref name="normalizedRoleName"/> from the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user to remove the role from.</param>
+            <param name="normalizedRoleName">The role to remove.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetRolesAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the roles the specified <paramref name="user"/> is a member of.
+            </summary>
+            <param name="user">The user whose roles should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the roles the user is a member of.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.IsInRoleAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Returns a flag indicating if the specified user is a member of the give <paramref name="normalizedRoleName"/>.
+            </summary>
+            <param name="user">The user whose role membership should be checked.</param>
+            <param name="normalizedRoleName">The role to check membership of</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing a flag indicating if the specified user is a member of the given group. If the 
+            user is a member of the group the returned value with be true, otherwise it will be false.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.Dispose">
+            <summary>
+            Dispose the store
+            </summary>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetClaimsAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Get the claims associated with the specified <paramref name="user"/> as an asynchronous operation.
+            </summary>
+            <param name="user">The user whose claims should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that contains the claims granted to a user.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.AddClaimsAsync(`1,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim},System.Threading.CancellationToken)">
+            <summary>
+            Adds the <paramref name="claims"/> given to the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user to add the claim to.</param>
+            <param name="claims">The claim to add to the user.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.ReplaceClaimAsync(`1,System.Security.Claims.Claim,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+            <summary>
+            Replaces the <paramref name="claim"/> on the specified <paramref name="user"/>, with the <paramref name="newClaim"/>.
+            </summary>
+            <param name="user">The user to replace the claim on.</param>
+            <param name="claim">The claim replace.</param>
+            <param name="newClaim">The new claim replacing the <paramref name="claim"/>.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.RemoveClaimsAsync(`1,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim},System.Threading.CancellationToken)">
+            <summary>
+            Removes the <paramref name="claims"/> given from the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user to remove the claims from.</param>
+            <param name="claims">The claim to remove.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.AddLoginAsync(`1,Microsoft.AspNetCore.Identity.UserLoginInfo,System.Threading.CancellationToken)">
+            <summary>
+            Adds the <paramref name="login"/> given to the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user to add the login to.</param>
+            <param name="login">The login to add to the user.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.RemoveLoginAsync(`1,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Removes the <paramref name="loginProvider"/> given from the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user to remove the login from.</param>
+            <param name="loginProvider">The login to remove from the user.</param>
+            <param name="providerKey">The key provided by the <paramref name="loginProvider"/> to identify a user.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetLoginsAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the associated logins for the specified <param ref="user"/>.
+            </summary>
+            <param name="user">The user whose associated logins to retrieve.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> for the asynchronous operation, containing a list of <see cref="T:Microsoft.AspNetCore.Identity.UserLoginInfo"/> for the specified <paramref name="user"/>, if any.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.FindByLoginAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the user associated with the specified login provider and login provider key..
+            </summary>
+            <param name="loginProvider">The login provider who provided the <paramref name="providerKey"/>.</param>
+            <param name="providerKey">The key provided by the <paramref name="loginProvider"/> to identify a user.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> for the asynchronous operation, containing the user, if any which matched the specified login provider and key.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetEmailConfirmedAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets a flag indicating whether the email address for the specified <paramref name="user"/> has been verified, true if the email address is verified otherwise
+            false.
+            </summary>
+            <param name="user">The user whose email confirmation status should be returned.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The task object containing the results of the asynchronous operation, a flag indicating whether the email address for the specified <paramref name="user"/>
+            has been confirmed or not.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetEmailConfirmedAsync(`1,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Sets the flag indicating whether the specified <paramref name="user"/>'s email address has been confirmed or not.
+            </summary>
+            <param name="user">The user whose email confirmation status should be set.</param>
+            <param name="confirmed">A flag indicating if the email address has been confirmed, true if the address is confirmed otherwise false.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetEmailAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the <paramref name="email"/> address for a <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose email should be set.</param>
+            <param name="email">The email to set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetEmailAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the email address for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose email should be returned.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The task object containing the results of the asynchronous operation, the email address for the specified <paramref name="user"/>.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetNormalizedEmailAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Returns the normalized email for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose email address to retrieve.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The task object containing the results of the asynchronous lookup operation, the normalized email address if any associated with the specified user.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetNormalizedEmailAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the normalized email for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose email address to set.</param>
+            <param name="normalizedEmail">The normalized email to set for the specified <paramref name="user"/>.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.FindByEmailAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the user, if any, associated with the specified, normalized email address.
+            </summary>
+            <param name="normalizedEmail">The normalized email address to return the user for.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The task object containing the results of the asynchronous lookup operation, the user if any associated with the specified normalized email address.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetLockoutEndDateAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the last <see cref="T:System.DateTimeOffset"/> a user's last lockout expired, if any.
+            Any time in the past should be indicates a user is not locked out.
+            </summary>
+            <param name="user">The user whose lockout date should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the result of the asynchronous query, a <see cref="T:System.DateTimeOffset"/> containing the last time
+            a user's lockout expired, if any.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetLockoutEndDateAsync(`1,System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary>
+            Locks out a user until the specified end date has passed. Setting a end date in the past immediately unlocks a user.
+            </summary>
+            <param name="user">The user whose lockout date should be set.</param>
+            <param name="lockoutEnd">The <see cref="T:System.DateTimeOffset"/> after which the <paramref name="user"/>'s lockout should end.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.IncrementAccessFailedCountAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Records that a failed access has occurred, incrementing the failed access count.
+            </summary>
+            <param name="user">The user whose cancellation count should be incremented.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the incremented failed access count.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.ResetAccessFailedCountAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Resets a user's failed access count.
+            </summary>
+            <param name="user">The user whose failed access count should be reset.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+            <remarks>This is typically called after the account is successfully accessed.</remarks>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetAccessFailedCountAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the current failed access count for the specified <paramref name="user"/>..
+            </summary>
+            <param name="user">The user whose failed access count should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the failed access count.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetLockoutEnabledAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a flag indicating whether user lockout can enabled for the specified user.
+            </summary>
+            <param name="user">The user whose ability to be locked out should be returned.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, true if a user can be locked out, otherwise false.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetLockoutEnabledAsync(`1,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Set the flag indicating if the specified <paramref name="user"/> can be locked out..
+            </summary>
+            <param name="user">The user whose ability to be locked out should be set.</param>
+            <param name="enabled">A flag indicating if lock out can be enabled for the specified <paramref name="user"/>.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetPhoneNumberAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the telephone number for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose telephone number should be set.</param>
+            <param name="phoneNumber">The telephone number to set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetPhoneNumberAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets the telephone number, if any, for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose telephone number should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the user's telephone number, if any.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetPhoneNumberConfirmedAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Gets a flag indicating whether the specified <paramref name="user"/>'s telephone number has been confirmed.
+            </summary>
+            <param name="user">The user to return a flag for, indicating whether their telephone number is confirmed.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, returning true if the specified <paramref name="user"/> has a confirmed
+            telephone number otherwise false.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetPhoneNumberConfirmedAsync(`1,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Sets a flag indicating if the specified <paramref name="user"/>'s phone number has been confirmed..
+            </summary>
+            <param name="user">The user whose telephone number confirmation status should be set.</param>
+            <param name="confirmed">A flag indicating whether the user's telephone number has been confirmed.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetSecurityStampAsync(`1,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the provided security <paramref name="stamp"/> for the specified <paramref name="user"/>.
+            </summary>
+            <param name="user">The user whose security stamp should be set.</param>
+            <param name="stamp">The security stamp to set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetSecurityStampAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Get the security stamp for the specified <paramref name="user" />.
+            </summary>
+            <param name="user">The user whose security stamp should be set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing the security stamp for the specified <paramref name="user"/>.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetTwoFactorEnabledAsync(`1,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Sets a flag indicating whether the specified <paramref name="user"/> has two factor authentication enabled or not,
+            as an asynchronous operation.
+            </summary>
+            <param name="user">The user whose two factor authentication enabled status should be set.</param>
+            <param name="enabled">A flag indicating whether the specified <paramref name="user"/> has two factor authentication enabled.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetTwoFactorEnabledAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Returns a flag indicating whether the specified <paramref name="user"/> has two factor authentication enabled or not,
+            as an asynchronous operation.
+            </summary>
+            <param name="user">The user whose two factor authentication enabled status should be set.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation, containing a flag indicating whether the specified 
+            <paramref name="user"/> has two factor authentication enabled or not.
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetUsersForClaimAsync(System.Security.Claims.Claim,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves all users with the specified claim.
+            </summary>
+            <param name="claim">The claim whose users should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> contains a list of users, if any, that contain the specified claim. 
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetUsersInRoleAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves all users in the specified role.
+            </summary>
+            <param name="normalizedRoleName">The role whose users should be retrieved.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/> contains a list of users, if any, that are in the specified role. 
+            </returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.SetTokenAsync(`1,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the token value for a particular user.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="loginProvider">The authentication provider for the token.</param>
+            <param name="name">The name of the token.</param>
+            <param name="value">The value of the token.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.RemoveTokenAsync(`1,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a token for a user.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="loginProvider">The authentication provider for the token.</param>
+            <param name="name">The name of the token.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.GetTokenAsync(`1,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Returns the token value.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="loginProvider">The authentication provider for the token.</param>
+            <param name="name">The name of the token.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.FindByNameOrEmailAsync(System.String)">
+            <summary>
+            Tries to find a user with user name or email address in current tenant.
+            </summary>
+            <param name="userNameOrEmailAddress">User name or email address</param>
+            <returns>User or null</returns>
+        </member>
+        <member name="M:Majid.Authorization.Users.MajidUserStore`2.FindByNameOrEmailAsync(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Tries to find a user with user name or email address in given tenant.
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="userNameOrEmailAddress">User name or email address</param>
+            <returns>User or null</returns>
+        </member>
+        <member name="T:Majid.Authorization.Users.UserToken">
+            <summary>
+            Represents an authentication token for a user.
+            </summary>
+        </member>
+        <member name="F:Majid.Authorization.Users.UserToken.MaxLoginProviderLength">
+            <summary>
+            Maximum length of the <see cref="P:Majid.Authorization.Users.UserToken.LoginProvider"/> property.
+            </summary>
+        </member>
+        <member name="F:Majid.Authorization.Users.UserToken.MaxNameLength">
+            <summary>
+            Maximum length of the <see cref="P:Majid.Authorization.Users.UserToken.Name"/> property.
+            </summary>
+        </member>
+        <member name="F:Majid.Authorization.Users.UserToken.MaxValueLength">
+            <summary>
+            Maximum length of the <see cref="P:Majid.Authorization.Users.UserToken.Value"/> property.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.UserToken.UserId">
+            <summary>
+            Gets or sets the primary key of the user that the token belongs to.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.UserToken.LoginProvider">
+            <summary>
+            Gets or sets the LoginProvider this token is from.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.UserToken.Name">
+            <summary>
+            Gets or sets the name of the token.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.UserToken.Value">
+            <summary>
+            Gets or sets the token value.
+            </summary>
+        </member>
+        <member name="P:Majid.Authorization.Users.UserToken.ExpireDate">
+            <summary>
+            Gets or sets the token expire date
+            </summary>
+        </member>
+        <member name="M:Majid.IdentityFramework.IdentityResultExtensions.CheckErrors(Microsoft.AspNetCore.Identity.IdentityResult)">
+            <summary>
+            Checks errors of given <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> and throws <see cref="T:Majid.UI.UserFriendlyException"/> if it's not succeeded.
+            </summary>
+            <param name="identityResult">Identity result to check</param>
+        </member>
+        <member name="M:Majid.IdentityFramework.IdentityResultExtensions.CheckErrors(Microsoft.AspNetCore.Identity.IdentityResult,Majid.Localization.ILocalizationManager)">
+            <summary>
+            Checks errors of given <see cref="T:Microsoft.AspNetCore.Identity.IdentityResult"/> and throws <see cref="T:Majid.UI.UserFriendlyException"/> if it's not succeeded.
+            </summary>
+            <param name="identityResult">Identity result to check</param>
+            <param name="localizationManager">Localization manager to localize error messages</param>
+        </member>
+    </members>
+</doc>

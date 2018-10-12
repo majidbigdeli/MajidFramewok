@@ -84,6 +84,11 @@ namespace Majid.Authorization
                 return;
             }
 
+            if (ReflectionHelper.IsPropertyGetterSetterMethod(methodInfo, type))
+            {
+                return;
+            }
+
             var authorizeAttributes =
                 ReflectionHelper
                     .GetAttributesOfMemberAndType(methodInfo, type)
